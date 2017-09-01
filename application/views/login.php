@@ -12,9 +12,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--    /////////// CSS //////////////////////////////////-->
     <link rel="stylesheet" href="assets/css/tether.css">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/bulma.css">
     <title>LOGIN</title>
     <style>
-        .main-body
+        .boder
         {
             background-color: #8193ff;
         }
@@ -30,27 +31,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
     </style>
 </head>
-<body class="main-body">
+<body class="boder" id="login">
 <div class="main">
-<form class="center-form">
+<div id="email-error" style="padding-left: 30%; padding-right: 30%; padding-top: 3px;"><email-error><email-error/></div>
+<form class="center-form" style="margin-top: 100px;">
     <div class="form-group">
         <label for="exampleInputEmail1" style="margin-left: 10px">{{ email }}</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" :placeholder="warning">
     </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1" style="margin-left: 10px">{{ password }}</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" :placeholder="password">
-    </div>
     <button type="submit" class="btn btn-primary" style="margin-left: 40%; margin-bottom: 8px">{{ submit }}</button>
 </form>
 </div>
+<script src="assets/new/js/vue-erroremail.js"></script>
 <script>
     new Vue({
         el: '.center-form',
         data: {
-            email: "Ваш код",
-            warning: "Укажите секретный код который Вам выдали.",
-            password: "Пароль",
+            email: "Ваша почта",
+            warning: "Укажите email который Вам выдали.",
             submit: "Подтвердить"
         }
     })
