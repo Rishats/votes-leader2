@@ -35,10 +35,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="main">
 <div id="email-error" v-if="emailerror" style="padding-left: 30%; padding-right: 30%; padding-top: 3px;"><email-error><email-error/></div>
     <div id="email-good" v-if="emailgood" style="padding-left: 30%; padding-right: 30%; padding-top: 3px;"><email-good><email-good/></div>
-<form class="center-form" style="margin-top: 100px;">
+<form method="POST" action="/index.php/login/register/" class="center-form" style="margin-top: 100px;">
     <div class="form-group">
         <label for="exampleInputEmail1" style="margin-left: 10px">{{ email }}</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" v-model="emailwriting">
+        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" v-model="emailwriting">
     </div>
     <button type="submit" class="btn btn-primary" style="margin-left: 40%; margin-bottom: 8px">{{ submit }}</button>
 </form>
