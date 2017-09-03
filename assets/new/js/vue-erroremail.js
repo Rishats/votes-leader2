@@ -10,7 +10,3 @@ Vue.component('email-error', {
     '    </div>\n' +
     '</article>'
 });
-// create a root instance
-new Vue({
-    el: '#email-error'
-});
