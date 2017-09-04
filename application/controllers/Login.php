@@ -8,11 +8,13 @@ class Login extends CI_Controller
     }
     public function register()
     {
-        $to  = $_POST['email'] ;
+        $email = $_POST['email'];
+        if (preg_match("/[^\d]@iuca.kg$/", $email)){
+            $to  = $email;
 
-        $subject = "Голосуй за лидера!";
+            $subject = "Голосуй за лидера!";
 
-        $message = ' 
+            $message = ' 
         <html> 
             <head> 
                 <title>Голосуй за лидера!</title> 
@@ -22,10 +24,15 @@ class Login extends CI_Controller
             </body> 
         </html>';
 
-        $headers  = "Content-type: text/html; charset=windows-1251 \r\n";
-        $headers .= "From: VOTES LEADER <votes@iuca.kg>\r\n";
+            $headers  = "Content-type: text/html; charset=windows-1251 \r\n";
+            $headers .= "From: VOTES LEADER <votes@iuca.kg>\r\n";
 
 
-        mail($to, $subject, $message, $headers);
-    }
+            mail($to, $subject, $message, $headers);
+        }
+        else{
+            $this->load->view('login');
+        }
+
+        }
 }
