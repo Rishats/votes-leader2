@@ -46,7 +46,7 @@ class Login extends CI_Controller
         if($this->checkEmail()){
             // Send Email With Code.
             $this->SendEmail();
-            
+
             redirect('/auth');
 
 
