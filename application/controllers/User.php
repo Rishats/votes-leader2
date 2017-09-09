@@ -52,7 +52,7 @@ class User extends CI_Controller
 
         }
         else{
-            // Email Empty redirect back
+            // Email NOT VALID redirect back
             redirect('/');
         }
 
