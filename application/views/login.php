@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <label for="exampleInputEmail1" style="margin-left: 10px">{{ email }}</label>
         <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" v-model="emailwriting">
     </div>
-    <button type="submit" class="btn btn-primary" style="margin-left: 40%; margin-bottom: 8px">{{ submit }}</button>
+    <button type="submit" class="btn btn-primary" style="margin-left: 40%; margin-bottom: 8px" v-bind:disabled="enableButton">{{ submit }}</button>
 </form>
 </div>
 <script src="assets/new/js/vue-goodemail.js"></script>
@@ -53,16 +53,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             emailwriting: "Укажите email который Вам выдали.",
             submit: "Подтвердить",
             emailerror: false,
-            emailgood: false
+            emailgood: false,
+            enableButton: false
         },
         watch: {
             emailwriting: function (val) {
                 var re = new RegExp('^[\\w.+\\-]+@iuca\\.kg$');
                 if(re.test(this.emailwriting)){
+                    this.enableButton = false;
                     this.emailerror = false;
                     this.emailgood = true;
                 }
                 else{
+                    this.enableButton = true;
                     this.emailerror = true;
                     this.emailgood = false;
                 }
