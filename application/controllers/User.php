@@ -1,6 +1,10 @@
 <?php
 class User extends CI_Controller
 {
+    public function register()
+    {
+        $this->load->view('register');
+    }
     public function index()
     {
         $config['global_xss_filtering'] = TRUE;
@@ -10,7 +14,16 @@ class User extends CI_Controller
     {
         $email = $_POST['email'];
         if (preg_match("/[^\d]@iuca.kg$/", $email)){
-            return true;
+            $this->load->database();
+            $this->db->where('email',$email);
+            $query = $this->db->get('users');
+            if ($query->num_rows() > 0){
+                return true;
+            }
+            else{
+                return false;
+            }
+
         }
         else{
             return false;
@@ -41,7 +54,7 @@ class User extends CI_Controller
         mail($to, $subject, $message, $headers);
         return true;
     }
-    public function register()
+    public function auth()
     {
         if($this->checkEmail()){
             // Send Email With Code.
@@ -57,5 +70,7 @@ class User extends CI_Controller
         }
 
         }
+
+
 
 }
