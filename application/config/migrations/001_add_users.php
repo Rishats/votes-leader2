@@ -6,7 +6,7 @@
  * Time: 18:28
  */
 
-class Migration_Add_user extends CI_Migration
+class Migration_Add_users extends CI_Migration
 {
     public function up()
     {
