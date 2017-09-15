@@ -70,7 +70,22 @@ class User extends CI_Controller
         }
 
         }
+        public function CodeForVoteGenerator()
+        {
+            $email = $_POST['email'];
+            if($this->checkEmail()){
+                $this->load->database();
+                $this->db->where('email',$email);
+                $query = $this->db->get('users');
+                $ranmcode = rand(5, 156463);
+            }
+            else{
+                return false;
+            }
 
+
+
+        }
 
 
 }

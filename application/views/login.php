@@ -43,8 +43,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <button type="submit" class="btn btn-primary" style="margin-left: 40%; margin-bottom: 8px" v-bind:disabled="enableButton">{{ submit }}</button>
 </form>
 </div>
-<script src="assets/new/js/vue-goodemail.js"></script>
-<script src="assets/new/js/vue-erroremail.js"></script>
+<script src="assets/new/js/vue-goodemail.vue"></script>
+<script src="assets/new/js/vue-erroremail.vue"></script>
 <script>
     new Vue({
         el: '#main',
